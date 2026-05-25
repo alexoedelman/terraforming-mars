@@ -111,7 +111,8 @@ export function buildNewGameView(privateMetadata: PrivateMetadata): ModalView {
     type: 'modal',
     callback_id: VIEW_CALLBACK_ID,
     private_metadata: encodePrivateMetadata(privateMetadata),
-    title: {type: 'plain_text', text: 'New Terraforming Mars game'},
+    // NB Slack caps title/submit/close at 24 characters each.
+    title: {type: 'plain_text', text: 'Terraforming Mars game'},
     submit: {type: 'plain_text', text: 'Create game'},
     close: {type: 'plain_text', text: 'Cancel'},
     blocks,

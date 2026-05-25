@@ -22,6 +22,15 @@ describe('buildNewGameView', () => {
     expect(view.close?.text).toBe('Cancel');
   });
 
+  it('respects Slack 24-char limit on title/submit/close button text', () => {
+    // Slack returns invalid_arguments with "must be less than 25 characters"
+    // for any of these three fields. Keep them <= 24.
+    const view = buildNewGameView(meta);
+    expect(view.title.text.length).toBeLessThanOrEqual(24);
+    expect(view.submit!.text.length).toBeLessThanOrEqual(24);
+    expect(view.close!.text.length).toBeLessThanOrEqual(24);
+  });
+
   it('round-trips private metadata', () => {
     const view = buildNewGameView(meta);
     expect(decodePrivateMetadata(view.private_metadata!)).toEqual(meta);
