@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terraforming Mars Slack bot</title>
+    <meta
+      name="description"
+      content="Vercel serverless bot that creates Terraforming Mars games from a /tm-newgame Slack slash command."
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f172a;
+        --bg-card: #1f2937;
+        --fg: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #fbbf24;
+        --border: #334155;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+        line-height: 1.55;
+      }
+      main {
+        max-width: 640px;
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2rem 2.25rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+        border: 1px solid rgba(34, 197, 94, 0.4);
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      p {
+        color: var(--muted);
+        margin: 0.5rem 0 1rem;
+      }
+      code {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border);
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+        color: var(--accent);
+      }
+      ul {
+        padding-left: 1.2rem;
+        margin: 0.5rem 0 1.5rem;
+        color: var(--muted);
+      }
+      ul li {
+        margin: 0.35rem 0;
+      }
+      ul li strong {
+        color: var(--fg);
+      }
+      a {
+        color: var(--accent);
+      }
+      .footer {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Terraforming Mars Slack bot <span class="badge">live</span></h1>
+      <p>
+        This deployment is a serverless Slack app. It does not serve a web UI.
+        If you reached this page in a browser, the function is up and Slack can
+        reach it.
+      </p>
+      <ul>
+        <li>
+          <strong>Slack endpoint:</strong> <code>/api/slack/events</code> (POST
+          only)
+        </li>
+        <li>
+          <strong>Slash command:</strong> <code>/tm-newgame</code> from any
+          channel in the workspace where this app is installed.
+        </li>
+        <li>
+          <strong>Source &amp; setup docs:</strong> see the
+          <code>slack-bot/</code> directory in the
+          <a href="https://github.com/bafolts/terraforming-mars"
+            >terraforming-mars repo</a
+          >
+          (your fork).
+        </li>
+      </ul>
+      <div class="footer">
+        Set up?
+        <a
+          href="https://github.com/bafolts/terraforming-mars/blob/main/slack-bot/SLACK_SETUP.md"
+          >SLACK_SETUP.md</a
+        >
+        &middot;
+        <a
+          href="https://github.com/bafolts/terraforming-mars/blob/main/slack-bot/DEPLOY.md"
+          >DEPLOY.md</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

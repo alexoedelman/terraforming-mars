@@ -63,6 +63,7 @@ See [DEPLOY.md](./DEPLOY.md) "Local development" for the full ngrok recipe.
 ```
 slack-bot/
 ├── api/slack/events.ts          # Vercel function entry
+├── public/index.html            # Landing page at the root URL (also satisfies Vercel's default outputDirectory)
 ├── src/
 │   ├── app.ts                   # Bolt App + Vercel receiver (lazy init)
 │   ├── receiver.ts              # Custom Web-standards Receiver

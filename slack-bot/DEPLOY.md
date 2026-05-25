@@ -119,6 +119,17 @@ per month.
   Directory is set to `slack-bot` (Step 1.4). Vercel runs `npm install` in
   the Root Directory; if it's set to the repo root, it ignores
   `slack-bot/package.json` and you get this error.
+- **Build fails with `No Output Directory named "public" found`** - this
+  means Vercel didn't find the `slack-bot/public/` landing page that ships
+  with this project. Most often the cause is Root Directory set to the
+  repo root instead of `slack-bot` (see above). Confirm `slack-bot/public/index.html`
+  exists in your fork and is being included in deployment. As a workaround,
+  in **Project Settings -> Build & Development Settings** you can set
+  **Output Directory** to `public` and click **Save**, then redeploy.
+- **Visiting `https://<your-vercel-domain>/` shows the "Terraforming Mars
+  Slack bot - live" landing page** - that's intentional. It confirms the
+  function is deployed and reachable. The actual Slack endpoint lives at
+  `/api/slack/events` and only accepts POSTs from Slack.
 - **Deployment succeeds but `/tm-newgame` returns "dispatch_failed"** - open
   the Vercel project -> **Logs**. The most common causes are missing/typo'd
   env vars and signature mismatches (re-copy `SLACK_SIGNING_SECRET`
